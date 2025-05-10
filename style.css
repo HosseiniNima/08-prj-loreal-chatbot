@@ -30,6 +30,14 @@ body {
   margin-bottom: 10px;
 }
 
+/* Style for the site logo */
+.site-logo {
+  display: block;
+  margin: 0 auto 20px; /* Center the logo and add more spacing below it */
+  max-width: 250px; /* Increase the size of the logo */
+  height: auto; /* Maintain aspect ratio */
+}
+
 /* chat window */
 .chatbox {
   margin: 40px 0;
