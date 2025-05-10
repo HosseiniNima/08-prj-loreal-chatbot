@@ -39,6 +39,7 @@ chatForm.addEventListener("submit", async (e) => {
       },
       body: JSON.stringify({
         model: "gpt-4o", // Specify the OpenAI model
+        temperature: 0.4, // Set the temperature for response randomness
         messages: [
           systemMessage, // Include the system message
           { role: "user", content: userMessage }, // Send the user's message
