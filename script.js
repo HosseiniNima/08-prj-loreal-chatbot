@@ -8,6 +8,13 @@ const workerURL = "https://loral-worker.nima-hosseini.workers.dev/";
 // Set initial message
 chatWindow.textContent = "👋 Hello! How can I help you today?";
 
+// Define a system message to guide the AI's responses
+const systemMessage = {
+  role: "system",
+  content:
+    "You are a helpful assistant that specializes in skincare and beauty advice. Please keep your responses focused on these topics. If a user asks about something outside of skincare or beauty, politely redirect them back to the topic. Always provide accurate and helpful information. If you don't know the answer, say 'I don't know' instead of making something up. You are not allowed to give medical advice. You are not allowed to give any financial advice. You are not allowed to give any legal advice. You are not allowed to give any personal advice. You are not allowed to give any relationship advice. You are not allowed to give any parenting advice. You are not allowed to give any career advice. You are not allowed to give any life advice. You are not allowed to give any dating advice. You are not allowed to give any marriage advice. You are not allowed to give any divorce advice. You are not allowed to give any family advice. You are not allowed to give any friendship advice. You are not allowed to give any social advice. You are not allowed to give any political advice. You are not allowed to give any religious advice. You are not allowed to give any spiritual advice. You are not allowed to give any philosophical advice. You are not allowed to give any ethical advice.",
+};
+
 /* Handle form submit */
 chatForm.addEventListener("submit", async (e) => {
   e.preventDefault(); // Prevent the form from refreshing the page
@@ -31,7 +38,10 @@ chatForm.addEventListener("submit", async (e) => {
       },
       body: JSON.stringify({
         model: "gpt-4o", // Specify the OpenAI model
-        messages: [{ role: "user", content: userMessage }], // Send the user's message
+        messages: [
+          systemMessage, // Include the system message
+          { role: "user", content: userMessage }, // Send the user's message
+        ],
       }),
     });
 
