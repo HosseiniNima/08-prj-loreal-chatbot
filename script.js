@@ -46,6 +46,11 @@ chatForm.addEventListener("submit", async (e) => {
       }),
     });
 
+    // Check if the response is OK
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     // Parse the JSON response
     const data = await response.json();
 
@@ -57,8 +62,10 @@ chatForm.addEventListener("submit", async (e) => {
       chatWindow.innerHTML += `<div class="msg ai">Bot: Sorry, I couldn't understand that.</div>`;
     }
   } catch (error) {
-    // Handle any errors that occur during the fetch
+    // Log the error to the console for debugging
     console.error("Error:", error);
+
+    // Display a user-friendly error message in the chat window
     chatWindow.innerHTML += `<div class="msg ai">Bot: Oops! Something went wrong. Please try again later.</div>`;
   }
 
