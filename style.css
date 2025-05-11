@@ -164,7 +164,7 @@ body {
   font-size: 14px;
   color: #666;
   background-color: #ffffff; /* Black background for the footer */
-  color: #ffffff; /* White text for the footer */
+  color: #000000; /* White text for the footer */
   padding: 20px;
 }
 
